@@ -1,0 +1,23 @@
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username: postgres
+  password: 159357
+  host: localhost
+  port: 5432
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+
+development:
+  <<: *default
+  database: sistema_agendamentos_api_development
+test:
+  <<: *default
+  database: sistema_agendamentos_api_test
+
+production:
+  <<: *default
+  database: sistema_agendamentos_api_production
+  username: sistema_agendamentos_api
+  password: <%= ENV["SISTEMA_AGENDAMENTOS_API_DATABASE_PASSWORD"] %>
